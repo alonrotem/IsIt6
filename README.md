@@ -3,7 +3,7 @@ This site will tell you!
 <a href="http://alonrotem.github.io/IsIt6" target="_blank"><img src="https://raw.githubusercontent.com/alonrotem/IsIt6/gh-pages/images/screenshot_no.png"/></a>   
 [<a href="http://alonrotem.github.io/IsIt6" target="_blank">Open the site</a>]
 
-## A single service site for the benefit of the public
+## A single serving site for the benefit of the public
 Sometimes you really really need to know if it's 18:00 already.
 My informative site "Is it 18:00 yet?" is here to the rescue!
 
