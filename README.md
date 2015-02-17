@@ -1,6 +1,6 @@
 # Is it 6 o'clock yet?
 This site will tell you!   
-a href="http://alonrotem.github.io/IsIt6" target="_blank"><img src="https://raw.githubusercontent.com/alonrotem/IsIt6/gh-pages/images/screenshot_no.png"/></a>   
+<a href="http://alonrotem.github.io/IsIt6" target="_blank"><img src="https://raw.githubusercontent.com/alonrotem/IsIt6/gh-pages/images/screenshot_no.png"/></a>   
 [<a href="http://alonrotem.github.io/IsIt6" target="_blank">Open the site</a>]
 
 ## A single service site for the benefit of the public
