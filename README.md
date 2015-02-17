@@ -1,5 +1,7 @@
 # Is it 6 o'clock yet?
-This site will tell you!   
+This site will tell you!
+   
+[![](https://raw.githubusercontent.com/alonrotem/IsIt6/gh-pages/images/screenshot_no.png)](http://alonrotem.github.io/IsIt6/)   
 [[Open the site](http://alonrotem.github.io/IsIt6)]
 
 ## A single service site for the benefit of the public
