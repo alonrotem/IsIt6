@@ -1,8 +1,8 @@
 # Is it 6 o'clock yet?
-This site will tell you!
+This site will tell you!   
 [[Open the site](http://alonrotem.github.io/IsIt6)]
 
-## A single service site for the benefits of the public
+## A single service site for the benefit of the public
 Sometimes you really really need to know if it's 18:00 already.
 My informative site "Is it 18:00 yet?" is here to the rescue!
 
