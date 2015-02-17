@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Is it 18:00 yet?</title>
+	<link rel="icon" type="image/png" href="images/isit6.png">
+	<script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
+
+	<script language="javascript" type="text/javascript">
+		var startTime = new Date();
+		var time6PM = new Date(startTime.getFullYear(), startTime.getMonth(), startTime.getDate(), 18,0,0,0);
+		var numOfCats = 10;
+		var catsLaunched = false;
+		var grumpyCatVisible = false;
+		
+		function updatetimer()
+		{
+			var now = new Date();
+			var diff = time6PM - now;
+			var isTD = document.getElementById("isIt");
+			var counterDiv = document.getElementById("counter");
+	
+			if(diff < 0)
+			{
+				isTD.innerHTML = "YES!";
+				document.body.style.backgroundColor="green";
+				isTD.style.color = "white";
+				counterDiv.style.color = "yellow";
+				if(!catsLaunched)
+				{
+					window.setTimeout ( "launchTheCats()", 1 );
+					beholdTheGrumpyCat(false);
+					grumpyCatVisible = false;
+				}
+			}
+			else
+			{
+				isTD.innerHTML = "No...";
+				if(!grumpyCatVisible)
+				{
+					beholdTheGrumpyCat(true);
+					grumpyCatVisible = true;
+				}
+				document.body.style.backgroundColor="red";
+				isTD.style.color = "yellow";
+				counterDiv.style.color = "white";
+			}
+			counterDiv.innerHTML = (diff >= 0)? 
+				get_time_difference(now, time6PM).duration + " to go..." : 
+				"Already " + get_time_difference(time6PM, now).duration + " past!";
+			window.setTimeout("updatetimer()", 1);
+		}
+		
+		function launchTheCats()
+		{
+			if(!catsLaunched)
+			{
+				for(var i=0; i < numOfCats; i++)
+				{
+					var sH = Math.floor(Math.random() * $(window).height());
+					var sL = Math.floor(Math.random() * $(window).width());
+					$('body').append('<img id="nyan'+i+'" src="images/nyan.gif" style="position:absolute; top:'+sH+'px; left:'+sL+'px; opacity:0;"/>');
+					catsLaunched = true;
+				}
+			}
+			for(var i=0; i < numOfCats; i++)
+			{
+				var toH = Math.floor(Math.random() * $(window).height()) - 21;
+				var toL = Math.floor(Math.random() * $(window).width()) - 53;
+				var speed = Math.floor(Math.random() * 5000) + 5000;
+				var nyanImage = $("#nyan" + i)
+				.animate({
+					left: toL,
+					top: toH,
+					opacity: 1
+				  }, speed, function() {
+				  });
+			}
+			window.setTimeout ("launchTheCats()", 100 );
+		}
+		
+		function beholdTheGrumpyCat(showGrumpy)
+		{
+			var grumpyImage = $("#grumpy");
+			if(showGrumpy)
+				grumpyImage.show();
+			else
+				grumpyImage.hide();
+			grumpyImage
+				.animate({
+					opacity: ((showGrumpy) ? 1 : 0),
+					display: ((showGrumpy) ? "block" : "none")
+				  }, 1000, function() {
+				  });
+		}
+		
+		function get_time_difference(earlierDate, laterDate) 
+		{
+			var oDiff = new Object();
+
+			var nTotalDiff = laterDate.getTime() - earlierDate.getTime();
+
+			oDiff.days = Math.floor(nTotalDiff / 1000 / 60 / 60 / 24);
+			nTotalDiff -= oDiff.days * 1000 * 60 * 60 * 24;
+
+			oDiff.hours = Math.floor(nTotalDiff / 1000 / 60 / 60);
+			nTotalDiff -= oDiff.hours * 1000 * 60 * 60;
+
+			oDiff.minutes = Math.floor(nTotalDiff / 1000 / 60);
+			nTotalDiff -= oDiff.minutes * 1000 * 60;
+
+			oDiff.seconds = Math.floor(nTotalDiff / 1000);
+			
+			oDiff.ms = nTotalDiff.toString().substring(2);
+			if(oDiff.ms.length == 1) {oDiff.ms = '00' + oDiff.ms}
+			else if(oDiff.ms.length == 2) {oDiff.ms = '0' + oDiff.ms}
+			
+			//  Format Hours
+			var hourtext = '00';
+			if (oDiff.hours > 0){ hourtext = String(oDiff.hours);}
+			if (hourtext.length == 1){hourtext = '0' + hourtext};
+
+			//  Format Minutes
+			var mintext = '00';
+			if (oDiff.minutes > 0){ mintext = String(oDiff.minutes);}
+			if (mintext.length == 1) { mintext = '0' + mintext };
+
+			//  Format Seconds
+			var sectext = '00';
+			if (oDiff.seconds > 0) { sectext = String(oDiff.seconds); }
+			if (sectext.length == 1) { sectext = '0' + sectext };
+
+			//  Set Duration
+			var sDuration = hourtext + ':' + mintext + ':' + sectext + "." + oDiff.ms;
+			oDiff.duration = sDuration;
+			//  -------------------------------------------------------------------  //
+
+			return oDiff;
+		}		
+		
+		function bodyLoaded()
+		{
+			var iframes = document.getElementsByTagName("iframe");
+			for(var i=0; i < iframes.length; i++)
+			{
+				if(iframes[i].getAttribute("src").toLowerCase().indexOf("adnetwork") > 0)
+				{
+					iframes[i].parentElement.style.display = "none";
+				}
+			}
+			updatetimer();
+		}
+	</script>
+</head>
+<body onload="bodyLoaded()" style="font-family: verdana, helvetica, arial, sans-serif;">
+	<center>
+	<div  style="font-size: 100pt;">
+		<table cellspacing='10' border="0"><tr><td><img id="grumpy" src='images/grumpy.png' style='opacity:0; display:none;' /></td><td id="isIt">
+		</td></tr></table>
+	</div>
+	<div id="counter">Is it 18:00 yet..?</div>
+	</center>
+</body>
+</html>
