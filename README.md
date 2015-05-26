@@ -15,6 +15,4 @@ My informative site "Is it 18:00 yet?" is here to the rescue!
 
 #More info
 
-See my blog <a href="http://www.alonintheworld.com" target="_blank">AlonInTheWorld</a>, and a post about this site, <a href="http://www.alonintheworld.com/2013/05/my-very-own-single-serving-site-is-it.html" target="_blank">My Very Own Single-Serving Site - Is it 18:00 yet?!</a>
-
- 
+Blogpost: <a href="http://www.alonintheworld.com/2013/05/my-very-own-single-serving-site-is-it.html" target="_blank">My Very Own Single-Serving Site - Is it 18:00 yet?!</a> (on my blog, <a href="http://www.alonintheworld.com" target="_blank">AlonInTheWorld</a>). 
